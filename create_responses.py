@@ -1,0 +1,110 @@
+# create_responses.py
+import json
+
+responses = {
+    "greeting": {
+        "patterns": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening", "greetings"],
+        "responses": [
+            "Hello! How can I help you today?",
+            "Hi there! What can I do for you?",
+            "Hey! Great to see you!",
+            "Hello! Welcome to our customer support!"
+        ]
+    },
+    "hours": {
+        "patterns": ["hours", "open", "close", "timing", "when are you", "working hours", "business hours", "what time"],
+        "responses": [
+            "Our customer service hours are Monday-Friday, 9 AM to 6 PM EST.",
+            "We're open weekdays from 9 AM to 6 PM Eastern Time.",
+            "You can reach us Mon-Fri, 9am-6pm EST. We're closed on weekends."
+        ]
+    },
+    "return": {
+        "patterns": ["return", "refund", "exchange", "send back", "money back", "return policy", "how do i return"],
+        "responses": [
+            "You can return items within 30 days of purchase with original receipt.",
+            "Our return policy: 30-day full refund, 31-60 days store credit only.",
+            "To start a return, please email us your order number and reason.",
+            "Returns are easy! Just log into your account and click 'Return Items'."
+        ]
+    },
+    "shipping": {
+        "patterns": ["shipping", "delivery", "ship", "deliver", "track order", "where is my order", "shipping time", "delivery time"],
+        "responses": [
+            "Standard shipping takes 3-5 business days. Express shipping is 1-2 days.",
+            "Free shipping on orders over $50!",
+            "You can track your order using the tracking number in your email.",
+            "Orders placed before 2 PM EST ship the same day!"
+        ]
+    },
+    "payment": {
+        "patterns": ["pay", "payment", "credit card", "debit card", "paypal", "installment", "how to pay", "payment methods"],
+        "responses": [
+            "We accept Visa, Mastercard, American Express, and PayPal.",
+            "You can pay using credit/debit cards or PayPal.",
+            "We also offer installment payments through Klarna.",
+            "All payments are secure and encrypted."
+        ]
+    },
+    "contact": {
+        "patterns": ["contact", "email", "phone", "call", "reach", "customer service", "support", "talk to human", "speak to person"],
+        "responses": [
+            "You can email us at support@mycompany.com or call 1-800-123-4567",
+            "Our support email: support@mycompany.com | Phone: 1-800-123-4567",
+            "Live chat available on our website 24/7, or email us anytime!",
+            "To speak with a human agent, please call during business hours."
+        ]
+    },
+    "product": {
+        "patterns": ["product", "item", "what do you sell", "products", "catalog", "merchandise", "what products"],
+        "responses": [
+            "We sell electronics, clothing, home goods, and accessories.",
+            "Check out our website for our full product catalog!",
+            "We have over 10,000 products across 20 categories.",
+            "Our bestsellers include smartphones, laptops, and smart home devices."
+        ]
+    },
+    "price": {
+        "patterns": ["price", "cost", "how much", "pricing", "expensive", "cheap", "discount", "sale", "offer"],
+        "responses": [
+            "Prices vary by product. Check our website for specific pricing.",
+            "We have items ranging from $10 to $1000. What's your budget?",
+            "We're currently running a 20% off sale on select items!",
+            "Sign up for our newsletter to get 10% off your first order."
+        ]
+    },
+    "goodbye": {
+        "patterns": ["bye", "goodbye", "see you", "talk to you later", "thanks bye", "have a good day", "take care"],
+        "responses": [
+            "Goodbye! Have a great day!",
+            "Thanks for chatting! Come back anytime!",
+            "Bye! Feel free to reach out if you need anything else!",
+            "Take care! We're here 24/7 if you need us."
+        ]
+    },
+    "thanks": {
+        "patterns": ["thank", "thanks", "appreciate", "grateful", "thank you"],
+        "responses": [
+            "You're welcome! Happy to help!",
+            "My pleasure! Anything else I can assist with?",
+            "Glad I could help!",
+            "Anytime! That's what I'm here for."
+        ]
+    },
+    "default": {
+        "responses": [
+            "I'm not sure I understand. Could you rephrase that?",
+            "Interesting question! Let me connect you with a human agent.",
+            "I'm still learning. Can you ask in a different way?",
+            "I don't have an answer for that yet. Would you like to speak with a person?",
+            "Could you please provide more details about your question?"
+        ]
+    }
+}
+
+# Save to file
+with open('responses.json', 'w') as f:
+    json.dump(responses, f, indent=4)
+
+print("✅ responses.json created successfully!")
+print(f"📁 Location: {__file__}")

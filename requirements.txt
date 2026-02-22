@@ -1,0 +1,6 @@
+# Create requirements.txt
+cat > requirements.txt << 'EOF'
+Flask==2.3.3
+textblob==0.17.1
+nltk==3.8.1
+EOF

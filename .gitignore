@@ -1,0 +1,38 @@
+# Create .gitignore file
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project
+*.log
+conversation_*.json
+*.db
+instance/
+
+# Flask
+.env
+.flaskenv
+EOF
