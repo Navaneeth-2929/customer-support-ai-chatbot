@@ -5,9 +5,19 @@ import random
 import re
 from datetime import datetime
 from textblob import TextBlob
+import nltk
+import ssl
 import os
 
 app = Flask(__name__)
+
+# Fix for SSL certificate issues on Vercel
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
 
 # Load responses
 try:
@@ -30,6 +40,16 @@ except FileNotFoundError:
             "responses": ["I'm not sure about that. Can you rephrase?"]
         }
     }
+    
+# Download NLTK data to a writable directory
+nltk_data_dir = '/tmp/nltk_data' if os.environ.get('VERCEL') else './nltk_data'
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+# Download required NLTK data
+nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
+nltk.download('stopwords', download_dir=nltk_data_dir, quiet=True)
+nltk.download('wordnet', download_dir=nltk_data_dir, quiet=True)
 
 # Store conversation contexts
 conversations = {}
